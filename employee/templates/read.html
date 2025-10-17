@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container w-100 mx-auto p-5 mt-5 text-center fs-4  border border-3">
+
+<h1>Employee list</h1>
+    <style>
+    table,tr,th,td{
+    border:2px solid blue;
+    border-collapse:collapse;
+    padding:10px;
+    }
+</style>
+
+    <table >
+        <tr>
+            <th>Eployee ID</th>
+            <th>Name</th>
+            <th>email</th>
+            <th>Phon Number</th>
+            <th>Designation</th>
+            <th>Salary</th>
+            <th>Photo</th>
+
+        </tr>
+           {% for i in app1 %}
+        <tr>
+
+            <td> {{i.emp_id}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.phon_number}} </td>
+            <td>{{i.designation}}</td>
+             <td>{{i.salary}}</td>
+            <td><img src="{{i.image.url}}" height="200px" width="150px"></td>
+
+
+        </tr>
+          {% endfor %}
+
+    </table>
+
+
+</div>
+{% endblock %}
+

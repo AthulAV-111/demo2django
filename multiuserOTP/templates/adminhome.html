@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container w-75 mx-auto p-5 mt-5 text-center  border border-3 border-light rounded-4">
+    <h3>Welcome to Home page</h3>
+
+    {% if user.is_authenticated %}
+   <h4>You are in admin page</h4>
+    <h4>hello {{user.username}} {{user.last_name}}</h4>
+
+    {% else %}
+    <h4>Hello guest</h4>
+
+    {% endif %}
+
+
+
+</div>
+{% endblock %}
+
+
+

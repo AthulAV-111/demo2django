@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container w-100 mx-auto p-5 mt-5 text-center  border border-3 border-secondary rounded-4">
+    <h1>Search</h1>
+
+     <style>
+    table,tr,th,td{
+    border:2px solid blue;
+    border-collapse:collapse;
+    padding:10px;
+    }
+</style>
+
+    {% if book %}
+
+    <table >
+        <tr>
+            <th>Cover</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Pages</th>
+            <th>Language</th>
+            <th>Action</th>
+
+        </tr>
+           {% for i in book %}
+        <tr>
+            <td><img src="{{i.image.url}}" height="200px" width="150px"></td>
+            <td> {{i.title}}</td>
+            <td>{{i.author}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.pages}} </td>
+            <td>{{i.language}}</td>
+            <td class="pt-3">
+                <a href="{% url 'books:bookdetail' i.id %}" class="btn btn-danger me-3">View</a>
+                <a href="{% url 'books:editbook' i.id %}" class="btn btn-danger me-3">Edit</a>
+                <a href="{% url 'books:deletebook' i.id %}" class="btn btn-danger me-3">Delete</a>
+            </td>
+
+
+        </tr>
+          {% endfor %}
+
+    </table>
+
+    {% else %}
+    <h3>No Search Results</h3>
+
+
+    {% endif%}
+
+
+</div>
+{% endblock %}
+
